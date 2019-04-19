@@ -1,0 +1,40 @@
+{
+  "name": "mol-api-client-ts",
+  "version": "1.0.0",
+  "description": "This package shall be separately bundled later.",
+  "main": "dist",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc -w -p .",
+    "build": "tsc -p .",
+    "postinstall": "./postinstall.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strix-kr/mol-api-client-ts.git"
+  },
+  "author": "dehypnosis@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strix-kr/mol-api-client-ts/issues"
+  },
+  "homepage": "https://github.com/strix-kr/mol-api-client-ts#readme",
+  "dependencies": {
+    "@types/apollo-upload-client": "^8.1.1",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link-context": "^1.0.17",
+    "apollo-link-error": "^1.1.10",
+    "apollo-link-http": "^1.5.14",
+    "apollo-link-retry": "^2.2.13",
+    "apollo-link-ws": "^1.0.17",
+    "apollo-upload-client": "^10.0.0",
+    "apollo-utilities": "^1.2.1",
+    "graphql-tag": "^2.10.1",
+    "subscriptions-transport-ws": "^0.9.16"
+  },
+  "devDependencies": {
+    "graphql-cli": "^3.0.11",
+    "typescript": "^3.4.4"
+  }
+}

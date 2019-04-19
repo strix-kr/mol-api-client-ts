@@ -1,0 +1,19 @@
+{
+  "schemaPath": ".schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "prod": {
+        "url": "https://gw.strix.co.kr"
+      },
+      "dev": {
+        "url": "https://gw.dev.strix.co.kr/graphql"
+      },
+      "latest": {
+        "url": "https://gw.latest.strix.co.kr/graphql"
+      },
+      "local": {
+        "url": "http://localhost:8080/graphql"
+      }
+    }
+  }
+}
