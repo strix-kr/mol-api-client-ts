@@ -33,12 +33,13 @@ env.auth.verifyAdminIdToken()
     */
     const apolloClient = createApolloClientForEnvironment(env, createApolloClientAdminAppPresetOption);
 
-    /*
-      Advanced: if you need FragmentMatcher for accurate fragment matching on unions and interfaces.
-      call "initCacheFragmentMatcher" to replace apollo cache to fragment matcher ready cache.
-      ref: https://www.apollographql.com/docs/react/advanced/fragments#fragment-matcher
-     */
-    await apolloClient.initCacheFragmentMatcher();
+  /*
+    Advanced option:
+    If you need FragmentMatcher for accurate fragment matching on unions and interfaces,
+    call "initCacheFragmentMatcher" to replace apollo cache to fragment matcher ready cache.
+    ref: https://www.apollographql.com/docs/react/advanced/fragments#fragment-matcher
+   */
+  await apolloClient.initCacheFragmentMatcher();
 
     await apolloClient.query({
       query: gql`
