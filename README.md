@@ -130,7 +130,7 @@ env.auth.verifyAdminIdToken()
   });
 ```
 
-#### 5. Contribution
+## 5. Contribution
 
 - `npm run dev` for watching and compile
 - `npm run build` for compile
