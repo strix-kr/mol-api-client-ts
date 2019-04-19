@@ -1,9 +1,10 @@
-### Moleculer API Gateway Client Library (TypeScript)
+# Moleculer API Gateway Client Library (TypeScript)
 
 - Implemented for `gw[.dev|.latest].strix.co.kr`: ref. [mol-api](https://github.com/strix-kr/mol-api)
 - Not bounded to neither `Vue.js` nor `React.js`.
 
-#### 1. Features
+
+## 1. Features
   - [x] API endpoint for each environments (prod/dev/latest/local)
   - [ ] Authentication service for each environment
     - [x] IAM Admin App
@@ -17,12 +18,12 @@
   - [ ] <s>REST client</s>
  
  
-#### 2. Install
+## 2. Install
 ```bash
-$ npm install https://github.com/strix-kr/mol-api-client-ts
+$ npm i -S https://github.com/strix-kr/mol-api-client-ts
 ```
 
-#### 3. GraphQL Schema IDE Support (optional)
+## 3. GraphQL Schema IDE Support (optional)
 If you want to use GraphQL schema validation and auto-completion feature, follow below instructions.
 
 After package installed, there would be made a copy of `.graphqlconfig` in local project directory.
@@ -30,7 +31,7 @@ That file is supported by some IDE including JetBrains.
 
 For JetBrains IDE, install `JS GraphQL` plugin and enable it. In addition to here, you need `graphql-cli` binary which has utility features for GraphQL client application development.
  ```bash
-$ sudo npm install -g graphql-cli
+$ sudo npm i -g graphql-cli
  ```
  
 Now let's try to get the schema.
@@ -47,16 +48,9 @@ schemaPath      .schema.graphql
 That's all, now your IDE may recognize your `gql` tags and could validate it.
 
 
-#### 4. Examples
+## 4. Examples
 
-##### 4-1. JavaScript module (ES5)
-For JS environment, can use compiled ES5 module from `./dist`.
-```js
-const { APIEnvironmentMap } = require("mol-api-client-ts/dist");
-// ...
-```
-
-##### 4-2. Admin Application with GraphQL client
+### 4-1. Admin Application with GraphQL client
 [./examples/admin-app.ts](./examples/admin-app.ts)
 ```ts
 import { APIEnvironmentMap, createApolloClientForEnvironment, createApolloClientAdminAppPresetOption } from "mol-api-client-ts";
