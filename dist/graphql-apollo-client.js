@@ -22,9 +22,19 @@ import { APIEnvironmentMap } from "./env";
 /* option preset for admin application */
 export var createApolloClientAdminAppPresetOption = {
     onForbidden: function (response, env) {
-        console.error(response, "redirect to OAuth2 sign in page...");
-        env.auth.requestAdminIdToken();
-    }
+        console.error(response);
+        // to not to block the UI, do job in the handler
+        setTimeout(function () {
+            // ask when has old id token
+            if (env.auth.loadIdToken() != null) {
+                if (!confirm("Token has been expired or invalid, want to sign in again?")) {
+                    return;
+                }
+            }
+            // make a redirection
+            env.auth.requestAdminIdToken();
+        }, 1000);
+    },
 };
 export function createApolloClientsForAllEnvironments(opt) {
     return Object.keys(APIEnvironmentMap)
