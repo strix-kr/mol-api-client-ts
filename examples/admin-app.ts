@@ -1,4 +1,4 @@
-import { APIEnvironmentMap, createApolloClientForEnvironment, createApolloClientAdminAppPresetOption } from "mol-api-client-ts";
+import { APIEnvironmentMap, createApolloClientForEnvironment, createApolloClientAdminAppPreset } from "mol-api-client-ts";
 import gql from "graphql-tag";
 
 
@@ -29,9 +29,9 @@ env.auth.verifyAdminIdToken()
     /*
       Apollo client will embed current token automatically.
       When token expired so got 401/403 response, it will automatically make a redirection to login page again.
-      See the error handle logic in "createApolloClientAdminAppPresetOption".
+      See the error handle logic in "createApolloClientAdminAppPreset".
     */
-    const apolloClient = createApolloClientForEnvironment(env, createApolloClientAdminAppPresetOption);
+    const apolloClient = createApolloClientForEnvironment(env, createApolloClientAdminAppPreset());
 
   /*
     Advanced option:

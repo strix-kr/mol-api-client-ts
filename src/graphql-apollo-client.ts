@@ -18,25 +18,35 @@ type CreateApolloClientOption = {
 
 
 /* option preset for admin application */
-export const createApolloClientAdminAppPresetOption: CreateApolloClientOption = {
-  onForbidden: (response: ErrorResponse, env: APIEnvironment) => {
-    console.error(response);
+type createApolloClientAdminAppPresetOption = {
+  tokenExpiredMessage: string
+}
 
-    // to not to block the UI, do job in the handler
-    setTimeout(() => {
-
-      // ask when has old id token
-      if (env.auth.loadIdToken() != null) {
-        if (!confirm("Token has been expired or invalid, want to sign in again?")) {
-          return;
-        }
-      }
-
-      // make a redirection
-      env.auth.requestAdminIdToken()
-    }, 1000);
-  },
+const createApolloClientAdminAppPresetDefaultOption :createApolloClientAdminAppPresetOption = {
+  tokenExpiredMessage: "Token has been expired or invalid, want to sign in again?",
 };
+
+export function createApolloClientAdminAppPreset(option: createApolloClientAdminAppPresetOption = createApolloClientAdminAppPresetDefaultOption): CreateApolloClientOption {
+  return {
+    onForbidden: (response: ErrorResponse, env: APIEnvironment) => {
+      console.error(response);
+
+      // to not to block the UI, do job in the handler
+      setTimeout(() => {
+
+        // ask when has old id token
+        if (env.auth.loadIdToken() != null) {
+          if (!confirm(option.tokenExpiredMessage)) {
+            return;
+          }
+        }
+
+        // make a redirection
+        env.auth.requestAdminIdToken()
+      }, 1000);
+    },
+  };
+}
 
 
 /* create apollo clients for all API environments */

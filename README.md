@@ -53,7 +53,7 @@ That's all, now your IDE may recognize your `gql` tags and could validate it.
 ### 4-1. Admin Application with GraphQL client
 [./examples/admin-app.ts](./examples/admin-app.ts)
 ```ts
-import { APIEnvironmentMap, createApolloClientForEnvironment, createApolloClientAdminAppPresetOption } from "mol-api-client-ts";
+import { APIEnvironmentMap, createApolloClientForEnvironment, createApolloClientAdminAppPreset } from "mol-api-client-ts";
 import gql from "graphql-tag";
 
 
@@ -84,17 +84,17 @@ env.auth.verifyAdminIdToken()
     /*
       Apollo client will embed current token automatically.
       When token expired so got 401/403 response, it will automatically make a redirection to login page again.
-      See the error handle logic in "createApolloClientAdminAppPresetOption".
+      See the error handle logic in "createApolloClientAdminAppPreset".
     */
-    const apolloClient = createApolloClientForEnvironment(env, createApolloClientAdminAppPresetOption);
+    const apolloClient = createApolloClientForEnvironment(env, createApolloClientAdminAppPreset());
 
-    /*
-      Advanced option:
-      If you need FragmentMatcher for accurate fragment matching on unions and interfaces,
-      call "initCacheFragmentMatcher" to replace apollo cache to fragment matcher ready cache.
-      ref: https://www.apollographql.com/docs/react/advanced/fragments#fragment-matcher
-     */
-    await apolloClient.initCacheFragmentMatcher();
+  /*
+    Advanced option:
+    If you need FragmentMatcher for accurate fragment matching on unions and interfaces,
+    call "initCacheFragmentMatcher" to replace apollo cache to fragment matcher ready cache.
+    ref: https://www.apollographql.com/docs/react/advanced/fragments#fragment-matcher
+   */
+  await apolloClient.initCacheFragmentMatcher();
 
     await apolloClient.query({
       query: gql`

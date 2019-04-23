@@ -6,7 +6,10 @@ import { APIEnvironment } from "./env";
 declare type CreateApolloClientOption = {
     onForbidden: (response: ErrorResponse, env: APIEnvironment) => Observable<FetchResult> | void;
 };
-export declare const createApolloClientAdminAppPresetOption: CreateApolloClientOption;
+declare type createApolloClientAdminAppPresetOption = {
+    tokenExpiredMessage: string;
+};
+export declare function createApolloClientAdminAppPreset(option?: createApolloClientAdminAppPresetOption): CreateApolloClientOption;
 export declare type ApolloClientsForAllEnvironments = {
     [envKey: string]: ApolloClient<InMemoryCache> & {
         initCacheFragmentMatcher: () => Promise<void>;

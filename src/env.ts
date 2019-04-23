@@ -9,6 +9,9 @@ export type APIEnvironment = {
 
   // api gateway authentication service
   auth: APIAuth
+
+  // for extensions
+  [key: string]: any
 }
 
 export const APIEnvironmentMap: {[key: string]: APIEnvironment} = {
