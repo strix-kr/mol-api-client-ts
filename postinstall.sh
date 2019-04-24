@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 cp -f ${CWD}.graphqlconfig ${INIT_CWD}/.graphqlconfig \
   && echo "

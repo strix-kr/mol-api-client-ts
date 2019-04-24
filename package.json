@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc -w -p .",
     "build": "tsc -p .",
-    "postinstall": "./postinstall.sh"
+    "postinstall": "[ \"$NODE_ENV\" != production ] && ./postinstall.sh || true"
   },
   "repository": {
     "type": "git",
